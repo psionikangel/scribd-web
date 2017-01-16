@@ -1,0 +1,18 @@
+{{ define "content" }}
+  <table>
+    <tr>
+        <th>Run Id</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Machine</th>
+    </tr>
+    {{ range .Runs }}
+    <tr>
+      <td><a href="/metadata?runid={{ .ID }}">{{ .ID }}</td>
+      <td>{{ .Start }}</td>
+      <td>{{ .End }}</td>
+      <td>{{ .Machinename }}</td>
+    </tr>
+    {{ end }}
+  </table>
+{{ end }}

@@ -1,0 +1,14 @@
+{{ define "content" }}
+  <table>
+    {{ range .Meta }}
+    <tr>
+      <td>{{ .Path }}</td>
+      <td>{{ .Filesize }}</td>
+      <td>{{ .LastModified }}</td>
+      <td>{{ .Filename }}</td>
+      <td>{{ .Extension }}</td>
+      <td>{{ .Checksum }}</td>
+    </tr>
+    {{ end }}
+  </table>
+{{ end }}

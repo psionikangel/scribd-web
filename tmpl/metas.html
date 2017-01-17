@@ -1,14 +1,30 @@
-{{ define "content" }}
-  <table>
+{{ define "metas" }}
+<main class="mdl-layout__content mdl-color--grey-100">
+  <div class="mdl-grid">
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width:100%;">
+    <thead>
+      <tr>
+          <th class="mdl-data-table__cell--non-numeric">Path</th>
+          <th>Filesize</th>
+          <th class="mdl-data-table__cell--non-numeric">Last Modified</th>
+          <th class="mdl-data-table__cell--non-numeric">Filename</th>
+          <th class="mdl-data-table__cell--non-numeric">Extension</th>
+          <th class="mdl-data-table__cell--non-numeric">Checksum</th>
+      </tr>
+    </thead>
+    <tbody>
     {{ range .Meta }}
     <tr>
-      <td>{{ .Path }}</td>
-      <td>{{ .Filesize }}</td>
-      <td>{{ .LastModified }}</td>
-      <td>{{ .Filename }}</td>
-      <td>{{ .Extension }}</td>
-      <td>{{ .Checksum }}</td>
+      <td class="mdl-data-table__cell--non-numeric" style="max-width:700px;text-overflow:ellipsis;overflow:hidden;">{{ .Path }}</td>
+      <td >{{ .Filesize }} b</td>
+      <td class="mdl-data-table__cell--non-numeric">{{ .LastModified }}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{ .Filename }}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{ .Extension }}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{ .Checksum }}</td>
     </tr>
     {{ end }}
+  </tbody>
   </table>
+</div>
+</main>
 {{ end }}

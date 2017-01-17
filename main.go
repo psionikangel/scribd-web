@@ -10,8 +10,9 @@ import (
 )
 
 func main() {
-
 	http.HandleFunc("/", handlers.HomeHandler)
+	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("./static/images"))))
+	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("./static/css"))))
 	http.HandleFunc("/metadata", makeHandler(handlers.MetaHandler))
 	http.HandleFunc("/run", makeHandler(handlers.RunHandler))
 	http.ListenAndServe(":8181", nil)

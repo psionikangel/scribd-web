@@ -1,0 +1,46 @@
+{{ define "analysis" }}
+<main class="mdl-layout__content mdl-color--grey-100">
+  <div class="mdl-grid">
+    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
+        <a href="#duplicates-panel" class="mdl-tabs__tab is-active">Duplicates</a>
+        <a href="#paths-panel" class="mdl-tabs__tab">Path-Depth Analysis</a>
+        <a href="#filesize-panel" class="mdl-tabs__tab">Filesize Heatmap</a>
+    </div>
+
+    <div class="mdl-tabs__panel is-active" id="duplicates-panel">
+      <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" style="width:100%;">
+        <thead>
+          <tr>
+              <th class="mdl-data-table__cell--non-numeric">Path</th>
+              <th>Filesize</th>
+              <th class="mdl-data-table__cell--non-numeric">Last Modified</th>
+              <th class="mdl-data-table__cell--non-numeric">Filename</th>
+              <th class="mdl-data-table__cell--non-numeric">Extension</th>
+              <th class="mdl-data-table__cell--non-numeric">Checksum</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{ range .Meta }}
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric" style="max-width:500px;text-overflow:ellipsis;overflow:hidden;">{{ .Path }}</td>
+          <td >{{ .Filesize }} b</td>
+          <td class="mdl-data-table__cell--non-numeric">{{ .LastModified }}</td>
+          <td class="mdl-data-table__cell--non-numeric" style="max-width:200px;text-overflow:ellipsis;overflow:hidden;">{{ .Filename }}</td>
+          <td class="mdl-data-table__cell--non-numeric">{{ .Extension }}</td>
+          <td class="mdl-data-table__cell--non-numeric">{{ .Checksum }}</td>
+        </tr>
+        {{ end }}
+      </tbody>
+      </table>
+    </div>
+    <div class="mdl-tabs__panel" id="paths-panel">
+
+    </div>
+    <div class="mdl-tabs__panel" id="filesize-panel">
+
+    </div>
+  </div>
+</div>
+</main>
+{{ end }}

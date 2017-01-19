@@ -8,6 +8,8 @@ type Run struct {
 	Machinename string
 	Start       time.Time
 	End         time.Time
+	FilesCount  int64
+	Delta       int64
 }
 
 //Runlist : A list of runs

@@ -15,6 +15,7 @@ func main() {
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("./static/css"))))
 	http.HandleFunc("/metadata", makeHandler(handlers.MetaHandler))
 	http.HandleFunc("/run", makeHandler(handlers.RunHandler))
+	http.HandleFunc("/analysis", makeHandler(handlers.AnalysisHandler))
 	http.ListenAndServe(":8181", nil)
 }
 

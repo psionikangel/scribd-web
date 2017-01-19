@@ -28,7 +28,16 @@ func RunHandler(w http.ResponseWriter, r *http.Request, cfg models.Config) {
 		if err != nil {
 			panic(err)
 		}
+		calculateDeltas(runs)
 		t, _ := template.ParseFiles("tmpl/home.html", "tmpl/runs.html")
 		t.Execute(w, runs)
+	}
+}
+
+func calculateDeltas(rl *models.Runlist) {
+	for i := 0; i < len(rl.Runs); i++ {
+		if i != len(rl.Runs)-1 && rl.Runs[i].Machinename == rl.Runs[i+1].Machinename {
+			rl.Runs[i].Delta = rl.Runs[i].FilesCount - rl.Runs[i+1].FilesCount
+		}
 	}
 }

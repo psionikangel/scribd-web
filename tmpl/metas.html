@@ -15,10 +15,10 @@
     <tbody>
     {{ range .Meta }}
     <tr>
-      <td class="mdl-data-table__cell--non-numeric" style="max-width:700px;text-overflow:ellipsis;overflow:hidden;">{{ .Path }}</td>
+      <td class="mdl-data-table__cell--non-numeric" style="max-width:500px;text-overflow:ellipsis;overflow:hidden;">{{ .Path }}</td>
       <td >{{ .Filesize }} b</td>
       <td class="mdl-data-table__cell--non-numeric">{{ .LastModified }}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{ .Filename }}</td>
+      <td class="mdl-data-table__cell--non-numeric" style="max-width:200px;text-overflow:ellipsis;overflow:hidden;">{{ .Filename }}</td>
       <td class="mdl-data-table__cell--non-numeric">{{ .Extension }}</td>
       <td class="mdl-data-table__cell--non-numeric">{{ .Checksum }}</td>
     </tr>

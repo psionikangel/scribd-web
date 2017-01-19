@@ -7,7 +7,9 @@
           <th class="mdl-data-table__cell--non-numeric">Run Id</th>
           <th class="mdl-data-table__header--sorted-descending">Start</th>
           <th>End</th>
-          <th class="mdl-data-table__cell--non-numeric">Machine</th>
+          <th class="mdl-data-table__cell--non-numeric mdl-data-table__header--sorted-ascending">Machine</th>
+          <th>File Count</th>
+          <th>&Delta;</th>
       </tr>
     </thead>
     <tbody>
@@ -17,6 +19,22 @@
         <td>{{ .Start }}</td>
         <td>{{ .End }}</td>
         <td class="mdl-data-table__cell--non-numeric">{{ .Machinename }}</td>
+        <td>{{ .FilesCount }}</td>
+        <td>
+          {{if gt .Delta 0 }}
+            + {{ .Delta }}
+          {{ else }}
+            {{ .Delta}}
+          {{ end }}
+        </td>
+        <td>
+          <!-- Accent-colored raised button -->
+          <a href="/analysis?runid={{ .ID }}">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+              Analysis
+            </button>
+          </a>
+        </td>
       </tr>
       {{ end }}
     </tbody>
